@@ -1,0 +1,9 @@
+<!--  templates/redetail.html: Das ganze Rezept -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h2>{{  rezept.bezeichnung  }} von {{ rezept.koch }} </h2>
+        <p>{{  rezept.zutaten }}   {{ rezept.zubereitung }}</p>
+    </div>
+{% endblock content %}

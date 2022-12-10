@@ -1,5 +1,10 @@
+<!-- templates/list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
 {% for rezept in object_list %}
     <div>
-        <p>{{ rezept.bezeichnung }}</p>
+        <p><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a> von {{ rezept.koch }} Nr.: {{ rezept.pk }}</p>
     </div>
 {% endfor %}
+{% endblock content %}

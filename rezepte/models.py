@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Rezept(models.Model):
@@ -10,3 +11,6 @@ class Rezept(models.Model):
 
     def __str__(self):
         return self.bezeichnung
+
+    def get_absolute_url(self):
+        return reverse('redetail', args=[str(self.id)])
