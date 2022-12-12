@@ -3,10 +3,32 @@
 
 {% block content %}
 
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+</style>
+
+<table style="width:50%">
+    <tr> 
+        <th style="width:15%">Bezeichnung</th>
+        <th style="width:15%">Was</th>
+        <th style="width:8%">Küche</th>
+        <th style="width:8%">Art der Zutaten</th>
+        <th style="width:4%">Koch</th>
+    </tr>
+
 {% for rezept in object_list %}
-    <div>
-        <p><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a> von {{ rezept.koch }} Nr.: {{ rezept.pk }}</p>
-    </div>
+    <tr>
+        <td><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a></td>
+        <td>{{ rezept.kategorie }}</td>
+        <td>{{ rezept.kueche }}</td>
+        <td>{{ rezept.art_zutaten }}</td>
+        <td>{{ rezept.koch }}</td>
+    </tr>
+ <!--      <p><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a> von {{ rezept.koch }} Nr.: {{ rezept.pk }}</p> -->
 {% endfor %}
+</table>
 
 {% endblock content %}
