@@ -5,6 +5,13 @@
 <header>
     <a href="{% url 'home' %}">Home</a>
 </header>
+{% if user.is_authenticated %}
+    <p>Angemeldet als  {{ user.username  }} </p>
+    <p><a href="{% url 'logout' %}">Log out</a></p>
+{% else %}
+    <p>Nicht angemeldet --> Nur Rezeptsuche möglich</p>
+    <a href="{% url 'login' %}">Log In</a>
+{% endif %}
 <h1>Rezeptdatenbank</h1><br>
 
 {% block content %}
