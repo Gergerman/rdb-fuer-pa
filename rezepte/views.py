@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic.edit import CreateView
 from .models import Rezept
 from django.db.models import Q
 
@@ -20,3 +21,8 @@ class RezeptListView(ListView):
 class RezeptDetailView(DetailView):
     model = Rezept
     template_name = 'redetail.html'
+
+class RezeptNeuView(CreateView):
+    model = Rezept
+    template_name = 'reneu.html'
+    fields = ['bezeichnung', 'koch', 'kategorie']

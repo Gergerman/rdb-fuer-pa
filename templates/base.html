@@ -7,6 +7,7 @@
 </header>
 {% if user.is_authenticated %}
     <p>Angemeldet als  {{ user.username  }} </p>
+    <p><a href="{% url 'reneu' %}">Neues Rezept</a></p>
     <p><a href="{% url 'logout' %}">Log out</a></p>
 {% else %}
     <p>Nicht angemeldet --> Nur Rezeptsuche möglich</p>
