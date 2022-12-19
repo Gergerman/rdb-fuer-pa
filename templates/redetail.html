@@ -2,8 +2,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        <h2>{{  rezept.bezeichnung  }} von {{ rezept.koch }} </h2>
-        <p>{{  rezept.zutaten }}   {{ rezept.zubereitung }}</p>
-    </div>
+
+<style>
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+</style>
+
+        <h2>{{  rezept.bezeichnung  }} ({{ rezept.koch }}) </h2>
+
+<table style="width:60%">
+    <tr>
+        <td>{{ rezept.kategorie }}</td>
+        <td>{{ rezept.kueche }}</td>
+        <td>{{ rezept.art_zutaten }}</td>
+    </tr>
+</table>"
+
+<table style="width:80%">
+    <tr>
+        <th>Zutaten für {{ rezept.portionen }} Portionen</th>
+        <th>Zubereitung</th>
+    </tr>
+    <tr>
+        <td>{{ rezept.zutaten|linebreaksbr }}</td>
+        <td>{{ rezept.zubereitung|linebreaksbr }}</td>
+    </tr>
+</table>
 {% endblock content %}
