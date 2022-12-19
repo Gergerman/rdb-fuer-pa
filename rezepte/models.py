@@ -14,7 +14,8 @@ class Speisenart(models.Model):
 class Rezept(models.Model):
     koch = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     bezeichnung = models.CharField(max_length=80)
-    kategorie = models.CharField(max_length=80)
+    #kategorie = models.CharField(max_length=80)
+    kategorie = models.ForeignKey(Speisenart, on_delete=models.CASCADE)
     kueche = models.CharField(max_length=80, blank=True)
     art_zutaten = models.CharField(max_length=80, blank=True)
     portionen = models.IntegerField(blank=True, null=True)
