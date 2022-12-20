@@ -25,4 +25,8 @@ class RezeptDetailView(DetailView):
 class RezeptNeuView(CreateView):
     model = Rezept
     template_name = 'reneu.html'
-    fields = ['bezeichnung', 'koch', 'kategorie']
+    fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'portionen', 'zutaten', 'zubereitung']
+
+    def form_valid(self, form):
+        form.instance.koch = self.request.user
+        return super().form_valid(form)

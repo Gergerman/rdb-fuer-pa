@@ -9,7 +9,7 @@ class Speisenart(models.Model):
         verbose_name_plural = "Speisenarten"
 
     def __str__(self):
-        return self.name
+       return self.name
 
 class Rezept(models.Model):
     koch = models.ForeignKey('auth.User', on_delete=models.CASCADE)
