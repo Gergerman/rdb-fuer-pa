@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Rezept
 from django.db.models import Q
 
@@ -30,3 +30,9 @@ class RezeptNeuView(CreateView):
     def form_valid(self, form):
         form.instance.koch = self.request.user
         return super().form_valid(form)
+
+class RezeptUpdateView(UpdateView):
+    model = Rezept
+    template_name = 'reedit.html'
+    fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
+

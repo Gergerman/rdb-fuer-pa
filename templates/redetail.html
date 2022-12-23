@@ -11,6 +11,8 @@
 </style>
 
         <h2>{{  rezept.bezeichnung  }} ({{ rezept.koch }}) </h2>
+        <a href="{% url 'reedit' rezept.pk %}">Das Rezept überarbeiten</a>
+        <br><br>
 
 <table style="width:60%">
     <tr>
@@ -31,5 +33,5 @@
     </tr>
 </table>
 <h3>Anmerkungen</h3>
-<p>{{ rezept.anmerkungen }}</p>
+<p>{{ rezept.anmerkungen|linebreaksbr }}</p>
 {% endblock content %}
