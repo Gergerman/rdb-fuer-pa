@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Rezept löschen</h1>
+<form action="" method="post">{% csrf_token %}
+    <p>Bist Du sicher, dass Du das Rezept "{{ rezept.bezeichnung }}" löschen möchtest?</p>>
+    <input type="submit" value="Bestätigen">
+</form>
+{% endblock content %}

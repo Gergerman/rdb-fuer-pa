@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.mixins import (LoginRequiredMixin, UserPassesTestMixin)
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Rezept
 from django.db.models import Q
 
@@ -22,7 +24,7 @@ class RezeptDetailView(DetailView):
     model = Rezept
     template_name = 'redetail.html'
 
-class RezeptNeuView(CreateView):
+class RezeptNeuView(LoginRequiredMixin,CreateView):
     model = Rezept
     template_name = 'reneu.html'
     fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
@@ -31,8 +33,24 @@ class RezeptNeuView(CreateView):
         form.instance.koch = self.request.user
         return super().form_valid(form)
 
-class RezeptUpdateView(UpdateView):
+class RezeptUpdateView(UserPassesTestMixin, UpdateView):
     model = Rezept
     template_name = 'reedit.html'
     fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.koch == self.request.user
+
+class RezeptDeleteView(UserPassesTestMixin, DeleteView):
+    model = Rezept
+    template_name = 'redelete.html'
+    success_url = reverse_lazy('home')
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.koch == self.request.user
+
+    
+
 
