@@ -1,10 +1,18 @@
 
 
 <!-- templates/base.html -->
-
+{% load static %}
+<html>
+<head>
+   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>RDB</title>
+</head>
+<body>
 <header>
     <a href="{% url 'home' %}">Home</a>
 </header>
+<div>
 {% if user.is_authenticated %}
     <p>Angemeldet als  {{ user.username  }} </p>
     <p><a href="{% url 'reneu' %}">Neues Rezept</a></p>
@@ -13,7 +21,12 @@
     <p>Nicht angemeldet --> Nur Rezeptsuche möglich</p>
     <a href="{% url 'login' %}">Log In</a>
 {% endif %}
+</div>
+<div>
 <h1>Rezeptdatenbank</h1><br>
 
 {% block content %}
 {% endblock content %}
+</div>
+</body>
+</html>
