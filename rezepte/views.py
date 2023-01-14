@@ -14,11 +14,25 @@ class HomePageView(TemplateView):
 class RezeptListView(ListView):
     model = Rezept
     template_name = 'list.html'
+    context_object_name = 'suchergebnis'
 
     def get_queryset(self):
-        query = self.request.GET.get("q")
-        object_list = Rezept.objects.filter(bezeichnung__icontains=query).order_by('bezeichnung')
-        return object_list
+        q1 = self.request.GET.get("SF1")
+        q2 = self.request.GET.get("SF2")
+
+        rezeptliste1 = (Rezept.objects.filter(Q(bezeichnung__icontains=q1) 
+        | Q(kategorie__icontains=q1)
+        | Q(kueche__icontains=q1) 
+        | Q(art_zutaten__icontains=q1)))
+
+        rezeptliste2 = (Rezept.objects.filter(Q(bezeichnung__icontains=q2) 
+        | Q(kategorie__icontains=q2)
+        | Q(kueche__icontains=q2) 
+        | Q(art_zutaten__icontains=q2))
+        .order_by('bezeichnung'))
+
+        suchergebnis = rezeptliste1 & rezeptliste2
+        return suchergebnis
 
 class RezeptDetailView(DetailView):
     model = Rezept

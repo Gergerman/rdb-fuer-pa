@@ -15,7 +15,7 @@
             <a href="{% url 'reedit' rezept.pk %}">Das Rezept überarbeiten</a>
             <br><br>
         {% endif %}
-<table style="width:60%">
+<table style="width:80%">
     <tr>
         <td>{{ rezept.kategorie }}</td>
         <td>{{ rezept.kueche }}</td>
@@ -36,8 +36,7 @@
 <h3>Anmerkungen</h3>
 <p>{{ rezept.anmerkungen|linebreaksbr }}</p>
 {% if user.is_authenticated %}
-    <a href="{% url 'redelete' rezept.pk %}">Dieses Rezept löschen</a>
-    <p>ACHTUNG!</p>
+    <a href="{% url 'redelete' rezept.pk %}">Dieses Rezept löschen</a> ------ ACHTUNG -------
     <br><br>
 {% endif %}
 

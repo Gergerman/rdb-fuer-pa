@@ -1,9 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Neues Rezept</h1>
+<h2>Neues Rezept</h2>
 <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
+   <p>Name des Rezepts: {{ form.bezeichnung }}</p>
+   <table style="width:70%">
+       <tr>
+           <th>Art des Gerichts</th>
+           <th>(National)Küche</th>
+           <th>Art der Zutaten</th>
+           <th>Portionen</th>
+       </tr>
+       <tr>
+           <td>{{ form.kategorie }}</td>
+           <td>{{ form.kueche }}</td>
+           <td>{{ form.art_zutaten }}</td>
+           <td>{{ form.portionen }}</td>
+       </tr>
+   </table><br>
+   <table style="width:70%">
+    <tr>
+        <th>Zutaten</th>
+        <th>Zubereitung</th>
+    </tr>
+    <tr>
+        <td>{{ form.zutaten }}</td>
+        <td>{{ form.zubereitung }}</td>
+    </tr>
+    </table><br>
+    Anmerkungen: {{ form.anmerkungen }}
+
     <input type="submit" value="Save">
 </form>
 {% endblock content %}

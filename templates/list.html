@@ -4,9 +4,9 @@
 {% block content %}
 
 <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
     }
 </style>
 
@@ -19,7 +19,7 @@
         <th style="width:4%">Wer</th>
     </tr>
 
-{% for rezept in object_list %}
+{% for rezept in suchergebnis %}
     <tr>
         <td><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a></td>
         <td>{{ rezept.kategorie }}</td>
