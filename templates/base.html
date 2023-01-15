@@ -28,22 +28,48 @@
         tr:nth-child(odd){
             background-color: white;
             }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: grey;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #111;
+        }
    </style> 
    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <title>RDB</title>
 </head>
 <body>
 <header>
-    <a href="{% url 'home' %}">Home</a>
+    
 </header>
 <div>
 {% if user.is_authenticated %}
-    <p>Angemeldet als  {{ user.username  }} </p>
-    <p><a href="{% url 'reneu' %}">Neues Rezept</a></p>
-    <p><a href="{% url 'logout' %}">Log out</a></p>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'reneu' %}">Neues Rezept</a></li>
+        <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li>
+    </ul>
+    <h2>Angemeldet als  {{ user.username  }} </h2>    
 {% else %}
-    <p>Nicht angemeldet --> Nur Rezeptsuche möglich</p>
-    <a href="{% url 'login' %}">Log In</a>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'login' %}">Log In</a></li>
+    </ul>
+    <h2>Nicht angemeldet --> Nur Rezeptsuche möglich</h2>
 {% endif %}
 </div>
 <div>
