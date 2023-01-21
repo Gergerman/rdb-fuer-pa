@@ -32,6 +32,7 @@ class RezeptListView(ListView):
         .order_by('bezeichnung'))
 
         suchergebnis = rezeptliste1 & rezeptliste2
+   #     anzahl = len(suchergebnis)
         return suchergebnis
 
 class RezeptDetailView(DetailView):

@@ -19,7 +19,7 @@
         <th style="width:4%">Wer</th>
     </tr>
 
-{% for rezept in suchergebnis %}
+    {% for rezept in suchergebnis %}
     <tr>
         <td><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a></td>
         <td>{{ rezept.kategorie }}</td>
@@ -28,7 +28,8 @@
         <td>{{ rezept.koch }}</td>
     </tr>
  <!--      <p><a href="{{ rezept.get_absolute_url }}">{{ rezept.bezeichnung }}</a> von {{ rezept.koch }} Nr.: {{ rezept.pk }}</p> -->
-{% endfor %}
+    {% endfor %}
+
 </table>
 
 {% endblock content %}

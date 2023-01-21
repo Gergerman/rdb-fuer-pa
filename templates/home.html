@@ -4,17 +4,12 @@
 {% block content %}
 <h2>Rezeptsuche</h2>
 <form action="{% url 'list' %}" method="get">
-    <h3>Eingabe eines Stichwortes in ein oder in beide Suchfelder.</h3>
-    <p>Es kann nach Namen des Rezeptes gesucht werde (Doboschtorte, ...),<br>
-     - nach der Art des Gerichts (Hauptspeise, Suppe, Salat, ...),<br>
-     - nach der Küche (österreichisch, italienisch, ..),<br>
-     - und nach den verwendeten Zutaten (Fleisch, Fisch, Rind, Gemüse, vegetarisch, ..).</p>
-    <p>Die beiden Suchfelder werden bei der Suche mit "UND" verknüpft<br>
-       und es genügt die Eingabe eines Wortteiles.</p>
-    <label for="SF1">Suchfeld 1:</label>
-    <input type="text" id="SF1" name="SF1"><br>
-    <p>UND</p>
-    <label for="SF2">Suchfeld 2:</label>
+    <h3>Eingabe eines Stichwortes in ein oder in beide Suchfelder</h3>
+    <p>Der Rezeptname oder eine der Kategorienbezeichnungen enthält:</p>
+   
+    <label for="SF1"></label>
+    <input type="text" id="SF1" name="SF1"> UND 
+    <label for="SF2"></label>
     <input type="text" id="SF2" name="SF2"><br><br>
     <input type="submit" value="Rezeptsuche">
 </form>

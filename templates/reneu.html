@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Neues Rezept</h2>
 <form action="" method="post">{% csrf_token %}
-   <p>Name des Rezepts: {{ form.bezeichnung }}</p>
+   <h3>Name des Rezepts: {{ form.bezeichnung }}</h3>
    <table style="width:70%">
        <tr>
            <th>Art des Gerichts</th>
@@ -30,6 +30,6 @@
     </table><br>
     Anmerkungen: {{ form.anmerkungen }}
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Speichern">
 </form>
 {% endblock content %}
