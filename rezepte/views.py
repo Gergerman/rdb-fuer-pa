@@ -19,6 +19,11 @@ class RezeptListView(ListView):
     def get_queryset(self):
         q1 = self.request.GET.get("SF1")
         q2 = self.request.GET.get("SF2")
+        veget = self.request.GET.get("vegetarisch")
+        vegan = self.request.GET.get("vegan")
+
+        veganliste=Rezept.objects.filter(vegan=True)
+        vegetliste=Rezept.objects.filter(vegetarisch=True)
 
         rezeptliste1 = (Rezept.objects.filter(Q(bezeichnung__icontains=q1) 
         | Q(kategorie__icontains=q1)
@@ -31,7 +36,12 @@ class RezeptListView(ListView):
         | Q(art_zutaten__icontains=q2))
         .order_by('bezeichnung'))
 
-        suchergebnis = rezeptliste1 & rezeptliste2
+        if vegan:
+            suchergebnis = rezeptliste1 & rezeptliste2 & veganliste
+        elif veget:
+            suchergebnis = rezeptliste1 & rezeptliste2 & (vegetliste | veganliste)
+        else:
+            suchergebnis = rezeptliste1 & rezeptliste2
    #     anzahl = len(suchergebnis)
         return suchergebnis
 
@@ -42,7 +52,7 @@ class RezeptDetailView(DetailView):
 class RezeptNeuView(LoginRequiredMixin,CreateView):
     model = Rezept
     template_name = 'reneu.html'
-    fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
+    fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'vegetarisch', 'vegan', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
 
     def form_valid(self, form):
         form.instance.koch = self.request.user
@@ -51,7 +61,7 @@ class RezeptNeuView(LoginRequiredMixin,CreateView):
 class RezeptUpdateView(UserPassesTestMixin, UpdateView):
     model = Rezept
     template_name = 'reedit.html'
-    fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
+    fields = ['bezeichnung', 'kategorie', 'kueche', 'art_zutaten', 'vegetarisch', 'vegan', 'portionen', 'zutaten', 'zubereitung', 'anmerkungen']
 
     def test_func(self):
         obj = self.get_object()

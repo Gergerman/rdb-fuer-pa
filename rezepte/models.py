@@ -43,37 +43,44 @@ SPEISENART = [
     ]
 
 KUECHE = [
+    ('international','international'),
     ('österreichisch','österreichisch'),
     ('italienisch','italienisch'),
     ('thailändisch','thailändisch'),
     ('chinesisch','chinesisch'),
-    ('französisch','französisch')
+    ('französisch','französisch'),
+    ('spanisch','spanisch'),
+    ('japanisch','japanisch'),
+    ('---------','---------')
     ]
 
 ZUTATART = [
     ('Fleisch','Fleisch'),
-    ('Fleisch - Schwein','Fleisch - Schwein'),
-    ('Fleisch - Rind','Fleisch - Rind'),
-    ('Fleisch - Lamm','Fleisch - Lamm'),
-    ('Fleisch - Huhn, Geflügel','Fleisch - Huhn, Geflügel'),
-    ('Fleisch - Wild','Fleisch - Wild'),
+    ('Schwein','Schwein'),
+    ('Rind','Rind'),
+    ('Lamm','Lamm'),
+    ('Huhn, Geflügel','Huhn, Geflügel'),
+    ('Wild','Wild'),
     ('Pasta','Pasta'),
-    ('vegetarisch','vegetarisch'),
-    ('vegetarisch - Pasta','vegetarisch - Pasta'),
-    ('vegetarisch - Gemüse','vegetarisch - Gemüse'),
-    ('vegetarisch - Mehlspeise','vegetarisch - Mehlspeise'),
-    ('Fisch, Meeresfrüchte','Fisch, Meeresfrüchte')
+    ('Gemüse','Gemüse'),
+    ('Obst','Obst'),
+    ('Reis, Getreide','Reis, Getreide'),
+    ('Mehlspeise','Mehlspeise'),
+    ('Fisch, Meeresfrüchte','Fisch, Meeresfrüchte'),
+    ('-----','-----------')
 ]
 
 class Rezept(models.Model):
     koch = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    bezeichnung = models.CharField(max_length=80)
+    bezeichnung = models.CharField(max_length=120)
     kategorie = models.CharField(max_length=80, choices=SPEISENART)
     #kategorie = models.ForeignKey(Speisenart, on_delete=models.CASCADE)
     #kueche = models.ForeignKey(Kueche, on_delete=models.CASCADE)
     kueche = models.CharField(max_length=80, blank=True, choices=KUECHE)
     #art_zutaten = models.ForeignKey(Zutatenart, on_delete=models.CASCADE)
     art_zutaten = models.CharField(max_length=80, blank=True, choices=ZUTATART)
+    vegetarisch = models.BooleanField(default=False)
+    vegan = models.BooleanField(default=False)
     portionen = models.PositiveIntegerField(blank=True, null=True, default=4)
     bewertung = models.PositiveIntegerField(blank=True, null=True)
     zutaten = models.TextField()
