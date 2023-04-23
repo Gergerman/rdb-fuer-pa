@@ -42,7 +42,6 @@ class RezeptListView(ListView):
             suchergebnis = rezeptliste1 & rezeptliste2 & (vegetliste | veganliste)
         else:
             suchergebnis = rezeptliste1 & rezeptliste2
-   #     anzahl = len(suchergebnis)
         return suchergebnis
 
 class RezeptDetailView(DetailView):
