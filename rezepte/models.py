@@ -31,7 +31,7 @@ from django.urls import reverse
 
 SPEISENART = [
     ('Vorspeise, Zwischengericht','Vorspeise, Zwischengericht'),
-    ('Suppe', 'Suppe'),
+    ('Suppe, Suppeneinlage', 'Suppe, Suppeneinlage'),
     ('Hauptspeise','Hauptspeise'),
     ('Beilage','Beilage'),
     ('Salat','Salat'),
