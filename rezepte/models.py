@@ -51,6 +51,8 @@ KUECHE = [
     ('französisch','französisch'),
     ('spanisch','spanisch'),
     ('japanisch','japanisch'),
+    ('georgisch','georgisch'),
+    ('levantinisch','levantinisch'),
     ('---------','---------')
     ]
 
