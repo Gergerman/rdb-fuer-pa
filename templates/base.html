@@ -69,18 +69,19 @@
         <li style="float:right"><a href="{% url 'login' %}">Log in neu</a></li>
         <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li>
     </ul>
+    <h1>Rezeptdatenbank</h1>
     <h2>Angemeldet als  {{ user.username  }} </h2>    
 {% else %}
     <ul>
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'login' %}">Log In</a></li>
     </ul>
+    <h1>Rezeptdatenbank</h1>
     <p>Ohne Anmeldung können Rezepte zwar gesucht und angezeigt werden.</p>
     <p>Verändern, löschen oder neu anlegen von Rezepten ist nicht möglich.</p>
 {% endif %}
 </div>
 <div>
-<h1>Rezeptdatenbank</h1>
 
 {% block content %}
 {% endblock content %}
