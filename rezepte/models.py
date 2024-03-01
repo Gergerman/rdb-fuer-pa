@@ -46,6 +46,7 @@ KUECHE = [
     ('international','international'),
     ('österreichisch','österreichisch'),
     ('italienisch','italienisch'),
+    ('britisch','britisch'),
     ('thailändisch','thailändisch'),
     ('chinesisch','chinesisch'),
     ('französisch','französisch'),
