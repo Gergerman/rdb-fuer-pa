@@ -10,15 +10,15 @@
     }
 </style>
 
-        <h2>{{  rezept.bezeichnung  }} ({{ rezept.koch }}) </h2>
+        <h2>{{  rezept.bezeichnung  }} ({{ rezept.koch }})</h2>
        
 <table style="width:80%">
     <tr>
         <td style="width:20%">{{ rezept.kategorie }}</td>
         <td style="width:20%">{{ rezept.kueche }}</td>
         <td style="width:24%">{{ rezept.art_zutaten }}</td>
-        <td style="width:8%">{{ rezept.vegetarisch|yesno:"vegetarisch,----" }}</td>
-        <td style="width:8%">{{ rezept.vegan|yesno:"vegan,----"}}</td>
+        <td style="width:8%;background-color:linen;border-color: linen">{{ rezept.vegetarisch|yesno:"vegetarisch," }}</td>
+        <td style="width:8%;background-color:linen;border-color: linen">{{ rezept.vegan|yesno:"vegan,"}}</td>
     </tr>
 </table>
 <br>
