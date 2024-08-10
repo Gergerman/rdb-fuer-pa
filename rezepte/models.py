@@ -55,6 +55,7 @@ KUECHE = [
     ('georgisch','georgisch'),
     ('levantinisch','levantinisch'),
     ('vietnamesisch','vietnamesisch'),
+    ('indisch','indisch'),
     ('---------','---------')
     ]
 

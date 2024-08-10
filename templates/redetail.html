@@ -17,8 +17,8 @@
         <td style="width:20%">{{ rezept.kategorie }}</td>
         <td style="width:20%">{{ rezept.kueche }}</td>
         <td style="width:24%">{{ rezept.art_zutaten }}</td>
-        <td style="width:8%;background-color:linen;border-color: linen">{{ rezept.vegetarisch|yesno:"vegetarisch," }}</td>
-        <td style="width:8%;background-color:linen;border-color: linen">{{ rezept.vegan|yesno:"vegan,"}}</td>
+        <td style="width:8%;background-color:linen;border-color: linen"><b>{{ rezept.vegetarisch|yesno:"vegetarisch," }}</b></td>
+        <td style="width:8%;background-color:linen;border-color: linen"><b>{{ rezept.vegan|yesno:"vegan,"}}</b></td>
     </tr>
 </table>
 <br>
@@ -41,4 +41,4 @@
 {% endif %}
 
 {% endblock content %}
-xxxx
+<!-- xxx -->
