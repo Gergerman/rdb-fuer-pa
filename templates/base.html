@@ -50,8 +50,7 @@
             text-decoration: none;
         }
         li a:hover {
-            background-color: #111;
-        }
+            background-color: rgb(#111)
         
    </style> 
     <title>RDB</title>
@@ -77,8 +76,9 @@
         <li><a href="{% url 'login' %}">Log In</a></li>
     </ul>
     <h1>Rezeptdatenbank</h1>
-    <p>Ohne Anmeldung können Rezepte zwar gesucht und angezeigt werden.</p>
-    <p>Verändern oder Anlegen von Rezepten ist jedoch nicht möglich.</p>
+    <h2>Nicht angemeldet</h2>
+    <p>Ohne Anmeldung können Rezepte zwar gesucht und angezeigt werden.<br>
+    Verändern oder Anlegen von Rezepten ist jedoch nicht möglich.</p>
 {% endif %}
 </div>
 <div>
