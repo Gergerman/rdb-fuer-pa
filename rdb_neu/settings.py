@@ -32,7 +32,6 @@ CORS_ALLOWED_ORIGINS = ['https://rezeptothek.com']
 CSRF_TRUSTED_ORIGINS = ['https://rezeptothek.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,17 +72,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rdb_neu.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+db_path = '/data/db.sqlite3'
+if not os.path.exists(db_path):
+    db_path = BASE_DIR / 'db.sqlite3'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': db_path,
     }
 }
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
