@@ -75,8 +75,8 @@ WSGI_APPLICATION = 'rdb_neu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-db_path = BASE_DIR / 'data/db.sqlite3'
-if not os.path.exists(db_path.parent):
+db_path = '/data/db.sqlite3'
+if not os.path.exists(db_path):
     db_path = BASE_DIR / 'db.sqlite3'
 
 DATABASES = {
