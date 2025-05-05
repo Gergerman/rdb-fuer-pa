@@ -25,7 +25,7 @@ SECRET_KEY = 's#0#^s8x6iy5-3t^3a8tmcrbtp$-@5(!-v7v4oj31w7fx&ao&-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'rezeptothek.com']
 
 
 # Application definition
