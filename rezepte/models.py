@@ -58,6 +58,7 @@ KUECHE = [
     ('indisch','indisch'),
     ('mexikanisch','mexikanisch'),
     ('USA','USA'),
+    ('russisch','russisch'),
     ('---------','---------')
     ]
 
