@@ -37,7 +37,7 @@ SPEISENART = [
     ('Salat','Salat'),
     ('Nachspeise','Nachspeise'),
     ('Brot, Gebäck','Brot, Gebäck'),
-    ('Sauce, Dipp','Sauce, Dipp'),
+    ('Sauce, Dip','Sauce, Dip'),
     ('Torte, Kuchen','Torte, Kuchen'),
     ('Kekse','Kekse')
     ]
