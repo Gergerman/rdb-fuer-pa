@@ -73,8 +73,8 @@ ZUTATART = [
     ('Gemüse','Gemüse'),
     ('Obst','Obst'),
     ('Reis, Getreide','Reis, Getreide'),
-    ('Mehlspeise','Mehlspeise'),
     ('Fisch, Meeresfrüchte','Fisch, Meeresfrüchte'),
+    ('Schokolade','Schokolade'),
     ('-----','-----------')
 ]
 
