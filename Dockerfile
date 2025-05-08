@@ -29,5 +29,8 @@ RUN python manage.py collectstatic --noinput
 RUN mkdir -p /data
 VOLUME /data
 
+# Run DB migrations
+RUN python manage.py migrate --noinput
+
 # Run gunicorn
 CMD gunicorn rdb_neu.wsgi:application --bind 0.0.0.0:8000
