@@ -71,10 +71,10 @@
     </ul>
     <h1>Rezeptdatenbank</h1>
     <h2>Angemeldet als  {{ user.username  }} </h2>
-    <form action="{% url 'logout' %}" method="post">
+   <!--  <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Log Out</button>
-    </form>   
+    </form>   --> 
 {% else %}
     <h1>Rezeptdatenbank</h1>
     <h2>Nicht angemeldet</h2>
