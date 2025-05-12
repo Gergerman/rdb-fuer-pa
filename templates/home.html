@@ -2,20 +2,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Rezeptsuche</h2>
-<form action="{% url 'list' %}" method="get">
-    <h3>Eingabe eines Stichwortes in ein oder in beide Suchfelder</h3>
-    <p>Der Rezeptname oder eine der Kategorienbezeichnungen enthält:</p>
+{% if user.is_authenticated %}
+    <h2>Rezeptsuche</h2>
+    <form action="{% url 'list' %}" method="get">
+        <h3>Eingabe eines Stichwortes in ein oder in beide Suchfelder</h3>
+        <p>Der Rezeptname oder eine der Kategorienbezeichnungen enthält:</p>
    
-    <label for="SF1"></label>
-    <input type="text" id="SF1" name="SF1"> UND 
-    <label for="SF2"></label>
-    <input type="text" id="SF2" name="SF2"><br><br>
-    <input type="checkbox" width="50px" height="1000px" id="vegetarisch" name="vegetarisch">
-    <label for="vegetarisch">vegetarisches Rezept</label><br>
-    <input type="checkbox" id="vegan" name="vegan">
-    <label for="vegan">veganes Rezept</label><br><br>
+        <label for="SF1"></label>
+        <input type="text" id="SF1" name="SF1"> UND 
+        <label for="SF2"></label>
+        <input type="text" id="SF2" name="SF2"><br><br>
+        <input type="checkbox" width="50px" height="1000px" id="vegetarisch" name="vegetarisch">
+        <label for="vegetarisch">vegetarisches Rezept</label><br>
+        <input type="checkbox" id="vegan" name="vegan">
+        <label for="vegan">veganes Rezept</label><br><br>
 
-    <input type="submit" value="Rezeptsuche">
-</form>
+        <input type="submit" value="Rezeptsuche">
+    </form>
+{% else %}
+    <h2>Diese Website steht nur registrierten usern zur Verfügung!</h2>
+    <form action="{%url 'login' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Log In</button>
+    </form>
+{% endif %}
 {% endblock content %}

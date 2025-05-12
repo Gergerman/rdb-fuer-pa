@@ -62,7 +62,7 @@
 </header>
 <div>
 {% if user.is_authenticated %}
-    <ul>
+     <ul>
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'reneu' %}">Neues Rezept</a></li>
         <li style="float:right"><a href="{% url 'password_change' %}">Passwort ändern</a></li>
@@ -70,16 +70,14 @@
         <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li>
     </ul>
     <h1>Rezeptdatenbank</h1>
-    <h2>Angemeldet als  {{ user.username  }} </h2>    
+    <h2>Angemeldet als  {{ user.username  }} </h2>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+    </form>   
 {% else %}
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'login' %}">Log In</a></li>
-    </ul>
     <h1>Rezeptdatenbank</h1>
     <h2>Nicht angemeldet</h2>
-    <p>Ohne Anmeldung können Rezepte zwar gesucht und angezeigt werden,<br>
-    Verändern oder Anlegen von Rezepten ist jedoch nicht möglich.</p>
 {% endif %}
 </div>
 <div>

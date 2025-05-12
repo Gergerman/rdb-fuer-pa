@@ -11,7 +11,7 @@ from django.db.models import Q
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
-class RezeptListView(ListView):
+class RezeptListView(LoginRequiredMixin,ListView):
     model = Rezept
     template_name = 'list.html'
     context_object_name = 'suchergebnis'
@@ -44,7 +44,7 @@ class RezeptListView(ListView):
             suchergebnis = rezeptliste1 & rezeptliste2
         return suchergebnis
 
-class RezeptDetailView(DetailView):
+class RezeptDetailView(LoginRequiredMixin,DetailView):
     model = Rezept
     template_name = 'redetail.html'
 
