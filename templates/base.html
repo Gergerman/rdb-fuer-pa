@@ -67,14 +67,22 @@
         <li><a href="{% url 'reneu' %}">Neues Rezept</a></li>
         <li style="float:right"><a href="{% url 'password_change' %}">Passwort ändern</a></li>
         <li style="float:right"><a href="{% url 'login' %}">Log in neu</a></li>
-        <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li>
+        <!-- <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li> -->
     </ul>
     <h1>Rezeptdatenbank</h1>
-    <h2>Angemeldet als  {{ user.username  }} </h2>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Log Out</button>
-    </form>
+    <table>
+        <tr style="background-color: linen;">
+            <td style="border: none">
+             <h2>Angemeldet als  {{ user.username  }}  </h2>
+            </td>
+            <td style="border: none">
+                <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 {% else %}
     <h1>Rezeptdatenbank</h1>
     <h2>Nicht angemeldet</h2>
