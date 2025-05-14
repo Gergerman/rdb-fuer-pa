@@ -21,6 +21,7 @@ class RezeptListView(LoginRequiredMixin,ListView):
         q2 = self.request.GET.get("SF2")
         veget = self.request.GET.get("vegetarisch")
         vegan = self.request.GET.get("vegan")
+        eigen = self.request.GET.get("eigen")
 
         veganliste=Rezept.objects.filter(vegan=True)
         vegetliste=Rezept.objects.filter(vegetarisch=True)
@@ -42,6 +43,8 @@ class RezeptListView(LoginRequiredMixin,ListView):
             suchergebnis = rezeptliste1 & rezeptliste2 & (vegetliste | veganliste)
         else:
             suchergebnis = rezeptliste1 & rezeptliste2
+        if eigen:
+            suchergebnis = suchergebnis.filter(koch=self.request.user)
         return suchergebnis
 
 class RezeptDetailView(LoginRequiredMixin,DetailView):
