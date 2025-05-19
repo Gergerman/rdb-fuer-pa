@@ -8,7 +8,7 @@ from .models import Rezept
 from django.db.models import Q
 
 # Create your views here.
-class HomePageView(TemplateView):
+class HomePageView(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
 
 class RezeptListView(LoginRequiredMixin,ListView):
