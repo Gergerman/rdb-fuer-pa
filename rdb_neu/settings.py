@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 's#0#^s8x6iy5-3t^3a8tmcrbtp$-@5(!-v7v4oj31w7fx&ao&-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('debug', 'true').lower() != 'false'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'rezeptothek.com']
 

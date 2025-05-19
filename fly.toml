@@ -29,3 +29,6 @@ primary_region = 'fra'
 [[statics]]
   guest_path = '/app/staticfiles'
   url_prefix = '/static'
+
+[env]
+  debug = false
