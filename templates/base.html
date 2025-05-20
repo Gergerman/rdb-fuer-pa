@@ -66,6 +66,11 @@
 <div>
 {% if user.is_authenticated %}
      <ul>
+        <li style="padding: 5px 16px;">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" style="height: 40px; vertical-align: middle;">
+            </a>
+        </li>
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'reneu' %}">Neues Rezept</a></li>
         <li style="float:right"><a href="{% url 'password_change' %}">Passwort ändern</a></li>
