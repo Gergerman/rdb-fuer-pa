@@ -41,18 +41,21 @@
         }
         li {
             float: left;
-        }
-        li a {
-            display: block;
             color: white;
             text-align: center;
             padding: 14px 16px;
+        }
+        li a {
+            display: block;
             text-decoration: none;
+            color: inherit;
         }
         li a:hover {
-            background-color: rgb(#111);
+            color: black;
         }
-        
+        li button:hover {
+            color: black !important;
+        }
    </style> 
     <title>RDB</title>
 </head>
@@ -66,32 +69,19 @@
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'reneu' %}">Neues Rezept</a></li>
         <li style="float:right"><a href="{% url 'password_change' %}">Passwort ändern</a></li>
-        <li style="float:right"><a href="{% url 'login' %}">Log in neu</a></li>
-        <!-- <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li> -->
-    </ul>
-    <h1>Rezeptdatenbank</h1>
-    <table>
-        <tr style="background-color: linen;">
-            <td style="border: none">
-             <h2>Angemeldet als  {{ user.username  }}  </h2>
-            </td>
-            <td style="border: none">
-                <form action="{% url 'logout' %}" method="post">
+        <li style="float:right;">
+            <form action="{% url 'logout' %}" method="post" style="margin: 0; padding: 0;">
                 {% csrf_token %}
-                <button type="submit">Log Out</button>
-                </form>
-            </td>
-        </tr>
-    </table>
-{% else %}
-    <h1>Rezeptdatenbank</h1>
-    <h2>Nicht angemeldet</h2>
+                <button type="submit" style="display: block; color: white; text-decoration: none; background-color: grey; border: none; cursor: pointer; font-family: inherit; font-size: inherit;">Log out</button>
+            </form>
+        </li>
+        <li style="float:right">Angemeldet als  {{ user.username  }}</li>
+    </ul>
 {% endif %}
 </div>
-<div>
 
 {% block content %}
 {% endblock content %}
-</div>
+
 </body>
 </html>
