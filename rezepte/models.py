@@ -39,7 +39,8 @@ SPEISENART = [
     ('Brot, Gebäck','Brot, Gebäck'),
     ('Sauce, Dip','Sauce, Dip'),
     ('Torte, Kuchen','Torte, Kuchen'),
-    ('Kekse','Kekse')
+    ('Kekse','Kekse'),
+    ('Marmelade','Marmelade')
     ]
 
 KUECHE = [
